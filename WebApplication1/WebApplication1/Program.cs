@@ -1,6 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 
 using WebApplication1.Entities;
+using WebApplication1.Repositories;
+using WebApplication1.Services;
+
 // using WebApplication1.Repositories;
 // using WebApplication1.Services;
 
@@ -11,10 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-// builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
-// builder.Services.AddScoped<IMedicamentRepository, MedicamentRepository>();
-// builder.Services.AddScoped<IPatientRepository, PatientRepository>();
-// builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
+builder.Services.AddScoped<IPrescriptionRepository, PrescriptionRepository>();
+builder.Services.AddScoped<IMedicamentRepository, MedicamentRepository>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
+builder.Services.AddScoped<IMedicamentService, MedicamentService>();
 
 builder.Services.AddDbContext<HospitalDbContext>(opt =>
 {
