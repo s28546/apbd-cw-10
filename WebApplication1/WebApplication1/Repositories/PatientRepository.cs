@@ -1,4 +1,5 @@
-﻿using WebApplication1.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using WebApplication1.Entities;
 
 namespace WebApplication1.Repositories;
 
@@ -11,13 +12,15 @@ public class PatientRepository : IPatientRepository
         _context = context;
     }
 
-    public async Task<bool> DoesPatientExist(Patient patient)
+    public async Task<bool> DoesPatientExist(int patientId)
     {
-        return await _context.Patients.FindAsync(patient.IdPatient) != null;
-    }
+        return await _context.Patients.AnyAsync(p => p.IdPatient == patientId);
 
-    public async void AddPatient(Patient patient)
+    }
+    
+    public async Task AddPatient(Patient patient)
     {
-        await _context.Patients.AddAsync(patient);
+        _context.Patients.Add(patient);
+        await _context.SaveChangesAsync();
     }
 }

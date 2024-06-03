@@ -3,5 +3,6 @@
 public record MedicamentDTO ( 
     int IdMedicament,
     int Dose,
-    string Description
+    string Description,
+    string Details
 );

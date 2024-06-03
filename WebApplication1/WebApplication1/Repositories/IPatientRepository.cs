@@ -5,7 +5,7 @@ namespace WebApplication1.Repositories;
 
 public interface IPatientRepository
 {
-    public Task<bool> DoesPatientExist(Patient patient);
+    public Task<bool> DoesPatientExist(int patientId);
 
-    public void AddPatient(PatientDTO patient);
+    public Task AddPatient(Patient patient);
 }
