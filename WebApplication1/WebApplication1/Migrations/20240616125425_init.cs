@@ -56,6 +56,20 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    IDUser = table.Column<int>(type: "int", nullable: false),
+                    Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    RefreshToken = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("User_pk", x => x.IDUser);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Prescription",
                 columns: table => new
                 {
@@ -136,6 +150,15 @@ namespace WebApplication1.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "User",
+                columns: new[] { "IDUser", "Password", "RefreshToken", "Username" },
+                values: new object[,]
+                {
+                    { 1, "9b8769a4a742959a2d0298c36fb70623f2dfacda8436237df08d8dfd5b37374c", "token1", "Jan" },
+                    { 2, "1d4598d1949b47f7f211134b639ec32238ce73086a83c2f745713b3f12f817e5", "token2", "Adam" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Prescription",
                 columns: new[] { "IdPrescription", "Date", "DueDate", "IdDoctor", "IdPatient" },
                 values: new object[,]
@@ -177,6 +200,9 @@ namespace WebApplication1.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Prescription_Medicament");
+
+            migrationBuilder.DropTable(
+                name: "User");
 
             migrationBuilder.DropTable(
                 name: "Medicament");

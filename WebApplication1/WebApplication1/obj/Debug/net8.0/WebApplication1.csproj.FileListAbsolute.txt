@@ -149,3 +149,4 @@ D:\projects\apbd\apbd-cw-10\WebApplication1\WebApplication1\obj\Debug\net8.0\ref
 D:\projects\apbd\apbd-cw-10\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.pdb
 D:\projects\apbd\apbd-cw-10\WebApplication1\WebApplication1\obj\Debug\net8.0\WebApplication1.genruntimeconfig.cache
 D:\projects\apbd\apbd-cw-10\WebApplication1\WebApplication1\obj\Debug\net8.0\ref\WebApplication1.dll
+D:\projects\apbd\apbd-cw-10\WebApplication1\WebApplication1\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

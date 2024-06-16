@@ -257,6 +257,48 @@ namespace WebApplication1.Migrations
                         });
                 });
 
+            modelBuilder.Entity("WebApplication1.Entities.User", b =>
+                {
+                    b.Property<int>("IDUser")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("IDUser")
+                        .HasName("User_pk");
+
+                    b.ToTable("User", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            IDUser = 1,
+                            Password = "9b8769a4a742959a2d0298c36fb70623f2dfacda8436237df08d8dfd5b37374c",
+                            RefreshToken = "token1",
+                            Username = "Jan"
+                        },
+                        new
+                        {
+                            IDUser = 2,
+                            Password = "1d4598d1949b47f7f211134b639ec32238ce73086a83c2f745713b3f12f817e5",
+                            RefreshToken = "token2",
+                            Username = "Adam"
+                        });
+                });
+
             modelBuilder.Entity("WebApplication1.Entities.Prescription", b =>
                 {
                     b.HasOne("WebApplication1.Entities.Doctor", "Doctor")

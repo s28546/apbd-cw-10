@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebApplication1.Entities.Configs;
 
 namespace WebApplication1.Entities;
 public class HospitalDbContext : DbContext
@@ -9,6 +8,7 @@ public class HospitalDbContext : DbContext
     
     public virtual DbSet<Doctor> Doctors { get; set; }
     public virtual DbSet<Patient> Patients { get; set; }
+    public virtual DbSet<User> Users { get; set; }
     
     public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options)
     {
@@ -17,6 +17,6 @@ public class HospitalDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(PrescriptionEfConfig).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(Program).Assembly);
     }
 }
